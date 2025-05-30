@@ -32,7 +32,7 @@ def send_xy_offset(ser, x, y, flag=0):
 
 # 绿色激光点处理函数
 def process_green(img,ifshow = False):
-    imgblur = cv.GaussianBlur(img,(5,5),5)
+    imgblur = cv.GaussianBlur(img,(5,5)，5)
 
     # 绿色颜色范围
     lower = np.array([35,43,110])
