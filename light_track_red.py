@@ -15,24 +15,6 @@ scale = 0.8                       # 比例系数
 
 global_contours = []
 
-# 绿色激光点处理函数
-def process_green(img,ifshow = False):
-    imgblur = cv.GaussianBlur(img,(5,5),5)
-
-    # 红色颜色范围
-    lower = np.array([35,43,196])
-    upper = np.array([100,255,255])
-    # 转HSV
-    imgHSV = cv.cvtColor(imgblur,cv.COLOR_BGR2HSV)
-    # 创建蒙版
-    mask = cv.inRange(imgHSV,lower,upper)
-    # 膨胀
-    imgdilate = cv.dilate(mask,(5,5),5)
-    if (ifshow):
-        cv.imshow("dilate_green",imgdilate)  
-
-    return imgdilate
-
 # 红色激光点预处理函数
 def process_red(img, ifshow=False):
     imgblur = cv.GaussianBlur(img, (5,5), 5)
