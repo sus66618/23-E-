@@ -141,6 +141,8 @@ dy = red_y - green_y
 - NumPy
 - pySerial
 
+> 代码保留了比赛调试完成时的串口配置，两个脚本当前均写为 `COM7`。部署到 Raspberry Pi 时，需要将其改为现场 USB-TTL 对应的设备路径（通常类似 `/dev/ttyUSB0`）；这只是串口设备名差异，不改变视觉算法和通信数据包。
+
 安装 Python 依赖：
 
 ```bash
@@ -150,7 +152,7 @@ python3 -m pip install -r requirements.txt
 在 Raspberry Pi 上运行前，需要确认：
 
 1. 摄像头编号与 `cv.VideoCapture(0)` 一致；
-2. USB-TTL 设备名称和代码中的串口配置一致，Linux 下通常类似 `/dev/ttyUSB0`；
+2. 将代码中的 `COM7` 修改为实际 USB-TTL 设备名称，Linux 下通常类似 `/dev/ttyUSB0`；
 3. 当前用户拥有摄像头和串口访问权限；
 4. HSV 阈值应在实际光照、背景和摄像头条件下重新标定；
 5. 下位机固件与本仓库使用的串口数据包格式一致。
